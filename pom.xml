@@ -33,7 +33,7 @@
         <connection>scm:https:https://github.com/vaadin/flow-component-base.git</connection>
         <developerConnection>scm:git:git@github.com:vaadin/flow-component-base.git</developerConnection>
         <url>https://github.com/vaadin/flow-component-base/</url>
-    </scm>
+  </scm>
 
     <dependencyManagement>
         <dependencies>
@@ -162,11 +162,9 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <version>2.5.3</version>
                 <configuration>
-                    <pushChanges>false</pushChanges>
                     <releaseProfiles>release</releaseProfiles>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
                     <tagBase>https://github.com/vaadin/${project.artifactId}/tags</tagBase>
-                    <tagNameFormat>${project.version}</tagNameFormat>
                 </configuration>
             </plugin>
             <plugin>
