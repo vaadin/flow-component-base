@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.vaadin</groupId>
     <artifactId>flow-component-base</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Flow component base</name>
     <description>Parent pom for individual component modules</description>
@@ -18,12 +19,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8
         </project.reporting.outputEncoding>
-        
-        <flow.release.repo.url>
-            https://repo.vaadin.com/nexus/content/repositories/flow/
-        </flow.release.repo.url>
-        <flow.deployment.repo.url>${flow.snapshot.repo.url}
-        </flow.deployment.repo.url>
         
         <!-- Jetty 9.3.8/9.3.9 causes the build to fail with 'address already in use' -->
         <jetty.version>9.3.7.v20160115</jetty.version>
@@ -39,8 +34,7 @@
         <connection>scm:https:https://github.com/vaadin/flow-component-base.git</connection>
         <developerConnection>scm:git:git@github.com:vaadin/flow-component-base.git</developerConnection>
         <url>https://github.com/vaadin/flow-component-base/</url>
-      <tag>HEAD</tag>
-  </scm>
+    </scm>
 
     <dependencyManagement>
         <dependencies>
@@ -60,18 +54,6 @@
             <name>Vaadin Pre-releases</name>
             <url>https://maven.vaadin.com/vaadin-prereleases</url>
         </repository>
-        
-        <repository>
-            <id>flow</id>
-            <url>${flow.release.repo.url}</url>
-        </repository>
-        <repository>
-            <id>flow-snapshots</id>
-            <url>${flow.snapshot.repo.url}</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
     </repositories>
 
     <pluginRepositories>
@@ -79,18 +61,6 @@
             <id>vaadin-prereleases</id>
             <name>Vaadin Pre-releases</name>
             <url>https://maven.vaadin.com/vaadin-prereleases</url>
-        </pluginRepository>
-        
-        <pluginRepository>
-            <id>flow</id>
-            <url>${flow.release.repo.url}</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>flow-snapshots</id>
-            <url>${flow.snapshot.repo.url}</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
         </pluginRepository>
     </pluginRepositories>
     
