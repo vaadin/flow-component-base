@@ -60,18 +60,6 @@
             <name>Vaadin Pre-releases</name>
             <url>https://maven.vaadin.com/vaadin-prereleases</url>
         </repository>
-        
-        <repository>
-            <id>flow</id>
-            <url>${flow.release.repo.url}</url>
-        </repository>
-        <repository>
-            <id>flow-snapshots</id>
-            <url>${flow.snapshot.repo.url}</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
     </repositories>
 
     <pluginRepositories>
@@ -79,18 +67,6 @@
             <id>vaadin-prereleases</id>
             <name>Vaadin Pre-releases</name>
             <url>https://maven.vaadin.com/vaadin-prereleases</url>
-        </pluginRepository>
-        
-        <pluginRepository>
-            <id>flow</id>
-            <url>${flow.release.repo.url}</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>flow-snapshots</id>
-            <url>${flow.snapshot.repo.url}</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
         </pluginRepository>
     </pluginRepositories>
     
