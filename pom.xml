@@ -33,7 +33,6 @@
         <connection>scm:https:https://github.com/vaadin/flow-component-base.git</connection>
         <developerConnection>scm:git:git@github.com:vaadin/flow-component-base.git</developerConnection>
         <url>https://github.com/vaadin/flow-component-base/</url>
-    <tag>HEAD</tag>
   </scm>
 
     <dependencyManagement>
