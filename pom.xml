@@ -35,6 +35,12 @@
         <driver.binary.downloader.maven.plugin.version>1.0.14
         </driver.binary.downloader.maven.plugin.version>
     </properties>
+    
+    <scm>
+        <connection>scm:https:https://github.com/vaadin/flow-component-base.git</connection>
+        <developerConnection>scm:git:git@github.com:vaadin/flow-component-base.git</developerConnection>
+        <url>https://github.com/vaadin/flow-component-base/</url>
+    </scm>
 
     <dependencyManagement>
         <dependencies>
