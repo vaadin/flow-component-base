@@ -4,7 +4,7 @@
 
     <groupId>com.vaadin</groupId>
     <artifactId>flow-component-base</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <packaging>pom</packaging>
     <name>Flow component base</name>
     <description>Parent pom for individual component modules</description>
@@ -33,7 +33,7 @@
         <connection>scm:https:https://github.com/vaadin/flow-component-base.git</connection>
         <developerConnection>scm:git:git@github.com:vaadin/flow-component-base.git</developerConnection>
         <url>https://github.com/vaadin/flow-component-base/</url>
-    <tag>HEAD</tag>
+    <tag>flow-component-base-0.0.1</tag>
   </scm>
 
     <dependencyManagement>
