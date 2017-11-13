@@ -20,12 +20,6 @@
         <project.reporting.outputEncoding>UTF-8
         </project.reporting.outputEncoding>
         
-        <flow.release.repo.url>
-            https://repo.vaadin.com/nexus/content/repositories/flow/
-        </flow.release.repo.url>
-        <flow.deployment.repo.url>${flow.snapshot.repo.url}
-        </flow.deployment.repo.url>
-        
         <!-- Jetty 9.3.8/9.3.9 causes the build to fail with 'address already in use' -->
         <jetty.version>9.3.7.v20160115</jetty.version>
         <maven.failsafe.plugin.version>2.20</maven.failsafe.plugin.version>
