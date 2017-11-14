@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.vaadin</groupId>
@@ -12,14 +13,15 @@
     <properties>
         <!-- Should be overridden in child modules -->
         <flow.version>1.0-SNAPSHOT</flow.version>
-        
+
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8
         </project.reporting.outputEncoding>
-        
-        <!-- Jetty 9.3.8/9.3.9 causes the build to fail with 'address already in use' -->
+
+        <!-- Jetty 9.3.8/9.3.9 causes the build to fail with 'address already 
+            in use' -->
         <jetty.version>9.3.7.v20160115</jetty.version>
         <maven.failsafe.plugin.version>2.20</maven.failsafe.plugin.version>
         <maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
@@ -27,13 +29,15 @@
         <maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
         <driver.binary.downloader.maven.plugin.version>1.0.14
         </driver.binary.downloader.maven.plugin.version>
+        <staging.server.id>vaadin-staging</staging.server.id>
+        <staging.server.url>https://oss.sonatype.org/</staging.server.url>
     </properties>
-    
+
     <scm>
         <connection>scm:https:https://github.com/vaadin/flow-component-base.git</connection>
         <developerConnection>scm:git:git@github.com:vaadin/flow-component-base.git</developerConnection>
         <url>https://github.com/vaadin/flow-component-base/</url>
-  </scm>
+    </scm>
 
     <dependencyManagement>
         <dependencies>
@@ -46,15 +50,20 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    
+
     <distributionManagement>
         <repository>
-            <id>vaadin-prereleases</id>
-            <name>Vaadin Pre-releases</name>
-            <url>https://maven.vaadin.com/vaadin-prereleases</url>
+            <id>vaadin-staging</id>
+            <name>Vaadin release staging repository</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
+        <snapshotRepository>
+            <id>vaadin-snapshots</id>
+            <name>Vaadin snapshot repository</name>
+            <url>https://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
+        </snapshotRepository>
     </distributionManagement>
-    
+
     <build>
         <plugins>
             <plugin>
@@ -96,7 +105,7 @@
                 </executions>
             </plugin>
             <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>${maven.failsafe.plugin.version}</version>
                 <executions>
@@ -173,6 +182,17 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
                 <version>${maven.deploy.plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.8</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <nexusUrl>${staging.server.url}</nexusUrl>
+                    <serverId>${staging.server.id}</serverId>
+                    <stagingProfileId>${staging.server.id}</stagingProfileId>
+                </configuration>
             </plugin>
         </plugins>
     </build>
