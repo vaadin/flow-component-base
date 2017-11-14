@@ -29,7 +29,6 @@
         <maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
         <driver.binary.downloader.maven.plugin.version>1.0.14
         </driver.binary.downloader.maven.plugin.version>
-      
         <staging.server.id>vaadin-staging</staging.server.id>
         <staging.server.url>https://oss.sonatype.org/</staging.server.url>
     </properties>
@@ -192,9 +191,9 @@
                 <configuration>
                     <nexusUrl>${staging.server.url}</nexusUrl>
                     <serverId>${staging.server.id}</serverId>
+                    <stagingProfileId>${staging.server.id}</stagingProfileId>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
 
