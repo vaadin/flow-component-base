@@ -193,6 +193,7 @@
                 <configuration>
                     <nexusUrl>${staging.server.url}</nexusUrl>
                     <serverId>${staging.server.id}</serverId>
+                    <stagingProfileId>${staging.server.id}</stagingProfileId>
                 </configuration>
             </plugin>
         </plugins>
