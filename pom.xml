@@ -5,7 +5,7 @@
 
     <groupId>com.vaadin</groupId>
     <artifactId>flow-component-base</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Flow component base</name>
     <description>Parent pom for individual component modules</description>
@@ -32,12 +32,6 @@
         <staging.server.id>vaadin-staging</staging.server.id>
         <staging.server.url>https://oss.sonatype.org/</staging.server.url>
     </properties>
-
-    <scm>
-        <connection>scm:https:https://github.com/vaadin/flow-component-base.git</connection>
-        <developerConnection>scm:git:git@github.com:vaadin/flow-component-base.git</developerConnection>
-        <url>https://github.com/vaadin/flow-component-base/</url>
-    </scm>
 
     <dependencyManagement>
         <dependencies>
@@ -160,18 +154,6 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>2.5.3</version>
-                <configuration>
-                    <pushChanges>false</pushChanges>
-                    <localCheckout>true</localCheckout>
-                    <releaseProfiles>release</releaseProfiles>
-                    <autoVersionSubmodules>true</autoVersionSubmodules>
-                    <tagBase>https://github.com/vaadin/${project.artifactId}/tags</tagBase>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
