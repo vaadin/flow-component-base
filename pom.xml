@@ -52,7 +52,7 @@
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
         <snapshotRepository>
-            <id>vaadin-snapshot</id>
+            <id>vaadin-snapshots</id>
             <name>Vaadin snapshot repository</name>
             <url>https://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
         </snapshotRepository>
