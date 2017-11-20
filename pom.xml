@@ -221,6 +221,13 @@
 
         <profile>
             <id>demo</id>
+            <distributionManagement>
+                <repository>
+                    <id>hummingbird-release</id>
+                    <name>flow internal</name>
+                    <url>https://repo.vaadin.com/nexus/content/repositories/flow/</url>
+                </repository>
+            </distributionManagement>
             <build>
                 <plugins>
                     <plugin>
