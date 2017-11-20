@@ -189,9 +189,7 @@
                 </snapshotRepository>
             </distributionManagement>
             <activation>
-                <property>
-                    <name>!test.use.hub</name>
-                </property>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <build>
                 <plugins>
