@@ -154,22 +154,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>${maven.deploy.plugin.version}</version>
-            </plugin>
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.8</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <nexusUrl>${staging.server.url}</nexusUrl>
-                    <serverId>${staging.server.id}</serverId>
-                    <stagingProfileId>${staging.profile.id}</stagingProfileId>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
@@ -193,6 +177,17 @@
             </activation>
             <build>
                 <plugins>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.8</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <nexusUrl>${staging.server.url}</nexusUrl>
+                            <serverId>${staging.server.id}</serverId>
+                            <stagingProfileId>${staging.profile.id}</stagingProfileId>
+                        </configuration>
+                    </plugin>
                     <plugin>
                         <groupId>com.lazerycode.selenium</groupId>
                         <artifactId>driver-binary-downloader-maven-plugin</artifactId>
@@ -247,6 +242,11 @@
                                 </goals>
                             </execution>
                         </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-deploy-plugin</artifactId>
+                        <version>${maven.deploy.plugin.version}</version>
                     </plugin>
                 </plugins>
             </build>
