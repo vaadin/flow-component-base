@@ -69,9 +69,9 @@
                     <!-- Use TestScope because the test classes are in the 
                         test package. -->
                     <useTestScope>true</useTestScope>
-                    <webAppConfig>
-                        <containerIncludeJarPattern>^$</containerIncludeJarPattern>
-                    </webAppConfig>
+                    <webApp>
+                        <resourceBase>src/main/resources/META-INF/resources</resourceBase>
+                    </webApp>
                 </configuration>
                 <executions>
                     <!-- start and stop jetty (running our app) when running 
