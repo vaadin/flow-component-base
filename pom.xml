@@ -63,6 +63,10 @@
             <id>webjars</id>
             <url>https://dl.bintray.com/webjars/maven</url>
         </repository>
+        <repository>
+            <id>vaadin-webjars-bom</id>
+            <url>https://repo.vaadin.com/nexus/content/repositories/flow/</url>
+        </repository>
     </repositories>
 
     <build>
