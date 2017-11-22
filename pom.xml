@@ -45,6 +45,19 @@
         </dependencies>
     </dependencyManagement>
 
+    <distributionManagement>
+        <repository>
+            <id>vaadin-staging</id>
+            <name>Vaadin release staging repository</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+        <snapshotRepository>
+            <id>vaadin-snapshots</id>
+            <name>Vaadin snapshot repository</name>
+            <url>https://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <repositories>
         <repository>
             <id>webjars</id>
@@ -154,40 +167,49 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.8</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <nexusUrl>${staging.server.url}</nexusUrl>
+                    <serverId>${staging.server.id}</serverId>
+                    <stagingProfileId>${staging.profile.id}</stagingProfileId>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <finalName>${project.artifactId}</finalName>
+                </configuration>
+                <executions>
+                    <execution>
+                        <configuration>
+                            <includes>
+                                <include>**/*View.*</include>
+                            </includes>
+                            <classifier>demo</classifier>
+                        </configuration>
+                        <goals>
+                            <goal>test-jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
     <profiles>
         <profile>
             <id>local-run</id>
-            <distributionManagement>
-                <repository>
-                    <id>vaadin-staging</id>
-                    <name>Vaadin release staging repository</name>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                </repository>
-                <snapshotRepository>
-                    <id>vaadin-snapshots</id>
-                    <name>Vaadin snapshot repository</name>
-                    <url>https://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
-                </snapshotRepository>
-            </distributionManagement>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <build>
                 <plugins>
-                    <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.8</version>
-                        <extensions>true</extensions>
-                        <configuration>
-                            <nexusUrl>${staging.server.url}</nexusUrl>
-                            <serverId>${staging.server.id}</serverId>
-                            <stagingProfileId>${staging.profile.id}</stagingProfileId>
-                        </configuration>
-                    </plugin>
                     <plugin>
                         <groupId>com.lazerycode.selenium</groupId>
                         <artifactId>driver-binary-downloader-maven-plugin</artifactId>
@@ -206,47 +228,6 @@
                                 </goals>
                             </execution>
                         </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-        <profile>
-            <id>demo</id>
-            <distributionManagement>
-                <repository>
-                    <id>hummingbird-release</id>
-                    <name>flow internal</name>
-                    <url>https://repo.vaadin.com/nexus/content/repositories/flow/</url>
-                </repository>
-            </distributionManagement>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-jar-plugin</artifactId>
-                        <version>3.0.2</version>
-                        <configuration>
-                            <finalName>${project.artifactId}</finalName>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <configuration>
-                                    <includes>
-                                        <include>**/*View.*</include>
-                                    </includes>
-                                    <classifier>demo</classifier>
-                                </configuration>
-                                <goals>
-                                    <goal>test-jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-deploy-plugin</artifactId>
-                        <version>${maven.deploy.plugin.version}</version>
                     </plugin>
                 </plugins>
             </build>
