@@ -193,7 +193,7 @@
                     <execution>
                         <configuration>
                             <includes>
-                                <include>**/*View.*</include>
+                                <include>**/demo/**</include>
                             </includes>
                             <classifier>demo</classifier>
                         </configuration>
