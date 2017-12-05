@@ -65,7 +65,7 @@
         </repository>
         <repository>
             <id>vaadin-webjars-bom</id>
-            <url>https://repo.vaadin.com/nexus/content/repositories/flow/</url>
+            <url>https://maven.vaadin.com/vaadin-prereleases/</url>
         </repository>
     </repositories>
 
