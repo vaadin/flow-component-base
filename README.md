@@ -3,3 +3,18 @@
 This project is just a `pom` containing common configuration for individual component modules. It includes for an example the build configuration for copying static resources and source codes so they can be shown in the demo.
 
 This allows pom-files of individual components to become very small, as they only need to specify dependencies required by the particular component.
+
+## Component submodules
+Individual flow components have been added as submodules to this project, which makes it easier for developing  flow and components.
+
+### get the components
+Via using submodules, you can easily get the flow components by using git commands:
+
+1. <code> git clone  https://github.com/vaadin/flow-component-base.git</code>
+2. <code> git submodule init</code>
+3. <code> git submodele update</code>
+
+
+>If you just want a single component to be initialed and updated, you can add parameters to the commands in this way: `git submodule init [Path]` and `git submodule update [Path]`, where [Path], in this case, is the component name.
+
+After you get all the component, you can import them as maven project to your IDE and work on the task as what you normally do.
