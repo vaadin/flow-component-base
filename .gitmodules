@@ -1,0 +1,48 @@
+[submodule "vaadin-button-flow"]
+	path = vaadin-button-flow
+	url = git@github.com:vaadin/vaadin-button-flow.git
+[submodule "vaadin-checkbox-flow"]
+	path = vaadin-checkbox-flow
+	url = git@github.com:vaadin/vaadin-checkbox-flow.git
+[submodule "vaadin-combo-box-flow"]
+	path = vaadin-combo-box-flow
+	url = git@github.com:vaadin/vaadin-combo-box-flow.git
+[submodule "vaadin-date-picker-flow"]
+	path = vaadin-date-picker-flow
+	url = git@github.com:vaadin/vaadin-date-picker-flow.git
+[submodule "vaadin-dialog-flow"]
+	path = vaadin-dialog-flow
+	url = git@github.com:vaadin/vaadin-dialog-flow.git
+[submodule "vaadin-form-layout-flow"]
+	path = vaadin-form-layout-flow
+	url = git@github.com:vaadin/vaadin-form-layout-flow.git
+[submodule "vaadin-grid-flow"]
+	path = vaadin-grid-flow
+	url = git@github.com:vaadin/vaadin-grid-flow.git
+[submodule "vaadin-icons-flow"]
+	path = vaadin-icons-flow
+	url = git@github.com:vaadin/vaadin-icons-flow.git
+[submodule "vaadin-iron-list-flow"]
+	path = vaadin-iron-list-flow
+	url = git@github.com:vaadin/vaadin-iron-list-flow.git
+[submodule "vaadin-ordered-layout-flow"]
+	path = vaadin-ordered-layout-flow
+	url = git@github.com:vaadin/vaadin-ordered-layout-flow.git
+[submodule "vaadin-progress-bar-flow"]
+	path = vaadin-progress-bar-flow
+	url = git@github.com:vaadin/vaadin-progress-bar-flow.git
+[submodule "vaadin-radio-button-flow"]
+	path = vaadin-radio-button-flow
+	url = git@github.com:vaadin/vaadin-radio-button-flow.git
+[submodule "vaadin-split-layout-flow"]
+	path = vaadin-split-layout-flow
+	url = git@github.com:vaadin/vaadin-split-layout-flow.git
+[submodule "vaadin-tabs-flow"]
+	path = vaadin-tabs-flow
+	url = git@github.com:vaadin/vaadin-tabs-flow.git
+[submodule "vaadin-text-field-flow"]
+	path = vaadin-text-field-flow
+	url = git@github.com:vaadin/vaadin-text-field-flow.git
+[submodule "vaadin-upload-flow"]
+	path = vaadin-upload-flow
+	url = git@github.com:vaadin/vaadin-upload-flow.git
