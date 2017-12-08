@@ -25,6 +25,6 @@ For adding a submodule, you can simply use the command `git submodule add [githu
 ### update a submodule
 After you register the submodule (`git submodule init [Path]`), you can update the submoule to the fresh version by using `git submodule update [Path]`. You can check the `Path` of the submodule from `.gitmodules`
 
-or if you need to update a submodule which you don't have locally, you need to do the 2nd and 3rd steps from `get the components`in the root directory
+Or if you need to update a submodule which you don't have locally, you need to do the 2nd and 3rd steps from `get the components`in the root directory
 
 For more submodule usage, you can also check the turtorial [here](https://git-scm.com/docs/git-submodule)
