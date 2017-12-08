@@ -23,12 +23,8 @@ After you get all the component, you can import them as maven project to your ID
 For adding a submodule, you can simply use the command `git submodule add [github_Url]` at the root directory of `flow-component-base`.
 
 ### update a submodule
-After you register and update the submodule, you can update the submoule to the fresh version by using the following commands:
+After you register the submodule (`git submodule init [Path]`), you can update the submoule to the fresh version by using `git submodule update [Path]`. You can check the `Path` of the submodule from `.gitmodules`
 
-1.<code>cd submodule_dir</code>
-2.<code>git checkout master</code>
-3.<code>git pull</code>
-
-or you can do `git submodule foreach git pull origin master` for all the submodules in the root directory
+or if you need to update a submodule which you don't have locally, you need to do the 2nd and 3rd steps from `get the components`in the root directory
 
 For more submodule usage, you can also check the turtorial [here](https://git-scm.com/docs/git-submodule)
