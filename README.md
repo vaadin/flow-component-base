@@ -18,3 +18,11 @@ Via using submodules, you can easily get the flow components by using git comman
 >If you just want a single component to be initialed and updated, you can add parameters to the commands in this way: `git submodule init [Path]` and `git submodule update [Path]`, where [Path], in this case, is the component name.
 
 After you get all the component, you can import them as maven project to your IDE and work on the task as what you normally do.
+
+### add a submodule
+For adding a submodule, you can simply use the command `git submodule add [github_Url]` at the root directory of `flow-component-base`.
+
+### update a submodule
+After you register the submodule (`git submodule init [Path]`), you can update the submoule to the fresh version by using `git submodule update [Path]`. You can check the `Path` of the submodule from `.gitmodules`
+
+For more submodule usage, you can also check the turtorial [here](https://git-scm.com/docs/git-submodule)
