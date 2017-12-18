@@ -27,4 +27,4 @@ After you register the submodule (`git submodule init [Path]`), you can update t
 
 Or if you need to update a submodule which you don't have locally, you need to do the 2nd and 3rd steps from `get the components`in the root directory
 
-For more submodule usage, you can also check the turtorial [here](https://git-scm.com/docs/git-submodule)
+For more submodule usage, you can also check the turtorial [here](https://git-scm.com/docs/git-submodule
