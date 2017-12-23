@@ -46,3 +46,6 @@
 [submodule "vaadin-upload-flow"]
 	path = vaadin-upload-flow
 	url = git@github.com:vaadin/vaadin-upload-flow.git
+[submodule "vaadin-notification-flow"]
+	path = vaadin-notification-flow
+	url = https://github.com/vaadin/vaadin-notification-flow
