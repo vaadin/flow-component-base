@@ -36,4 +36,4 @@ In order to use the latest version of the component, you can update the componen
 
 or using `git submodule foreach git pull origin master` to update all the submodules in the project
 
-For more submodule usage, you can also check the turtorial [here](https://git-scm.com/docs/git-submodule)
+For more submodule usage, you can also check the tutorial [here](https://git-scm.com/docs/git-submodule)
