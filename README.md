@@ -12,7 +12,7 @@ Via using submodules, you can easily get the flow components by using git comman
 
 1. <code> git clone  https://github.com/vaadin/flow-component-base.git</code>
 2. <code> git submodule init</code>
-3. <code> git submodele update</code>
+3. <code> git submodule update</code>
 
 
 >If you just want a single component to be initialed and updated, you can add parameters to the commands in this way: `git submodule init [Path]` and `git submodule update [Path]`, where [Path], in this case, is the component name.
