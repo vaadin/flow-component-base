@@ -49,3 +49,6 @@
 [submodule "vaadin-notification-flow"]
 	path = vaadin-notification-flow
 	url = https://github.com/vaadin/vaadin-notification-flow
+[submodule "vaadin-list-box-flow"]
+	path = vaadin-list-box-flow
+	url = https://github.com/vaadin/vaadin-list-box-flow.git
