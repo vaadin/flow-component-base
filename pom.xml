@@ -191,11 +191,24 @@
                 </configuration>
                 <executions>
                     <execution>
+                        <id>demo-jar</id>
                         <configuration>
                             <includes>
                                 <include>**/demo/**</include>
                             </includes>
                             <classifier>demo</classifier>
+                        </configuration>
+                        <goals>
+                            <goal>test-jar</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>testbench-jar</id>
+                        <configuration>
+                            <includes>
+                                <include>**/testbench/**</include>
+                            </includes>
+                            <classifier>testbench</classifier>
                         </configuration>
                         <goals>
                             <goal>test-jar</goal>
