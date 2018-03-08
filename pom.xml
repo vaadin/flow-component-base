@@ -194,6 +194,7 @@
                         <configuration>
                             <includes>
                                 <include>**/demo/**</include>
+                                <include>**/META-INF/resources/**</include>
                             </includes>
                             <classifier>demo</classifier>
                         </configuration>
