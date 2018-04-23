@@ -33,18 +33,6 @@
         <staging.server.url>https://oss.sonatype.org/</staging.server.url>
     </properties>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.vaadin</groupId>
-                <artifactId>vaadin-webjars-bom</artifactId>
-                <type>pom</type>
-                <scope>import</scope>
-                <version>${flow.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <distributionManagement>
         <repository>
             <id>vaadin-staging</id>
@@ -62,10 +50,6 @@
         <repository>
             <id>webjars</id>
             <url>https://dl.bintray.com/webjars/maven</url>
-        </repository>
-        <repository>
-            <id>vaadin-webjars-bom</id>
-            <url>https://maven.vaadin.com/vaadin-prereleases/</url>
         </repository>
     </repositories>
 
