@@ -32,6 +32,17 @@
         <staging.server.id>vaadin-staging</staging.server.id>
         <staging.server.url>https://oss.sonatype.org/</staging.server.url>
     </properties>
+    
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.webjars.bowergithub.webcomponents</groupId>
+                <artifactId>webcomponentsjs</artifactId>
+                <version>[1.1.0,1.999)</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <distributionManagement>
         <repository>
@@ -52,15 +63,6 @@
             <url>https://dl.bintray.com/webjars/maven</url>
         </repository>
     </repositories>
-
-    <dependencies>
-         <dependency>
-            <groupId>org.webjars.bowergithub.vaadin</groupId>
-            <artifactId>vaadin-lumo-styles</artifactId>
-            <version>1.0.0</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
 
     <build>
         <plugins>
