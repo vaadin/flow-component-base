@@ -34,6 +34,11 @@
     </properties>
 
     <distributionManagement>
+        <repository>
+           <id>vaadin-staging</id>
+           <name>Vaadin release staging repository</name>
+           <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
         <snapshotRepository>
             <id>vaadin-snapshots</id>
             <name>Vaadin snapshot repository</name>
@@ -42,11 +47,6 @@
     </distributionManagement>
 
     <repositories>
-        <repository>
-            <id>vaadin-staging</id>
-            <name>Vaadin release staging repository</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
         <repository>
             <id>vaadin-prereleases</id>
             <url>https://maven.vaadin.com/vaadin-prereleases</url>
