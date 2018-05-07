@@ -35,9 +35,9 @@
 
     <distributionManagement>
         <repository>
-            <id>vaadin-staging</id>
-            <name>Vaadin release staging repository</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+           <id>vaadin-staging</id>
+           <name>Vaadin release staging repository</name>
+           <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
         <snapshotRepository>
             <id>vaadin-snapshots</id>
@@ -47,6 +47,14 @@
     </distributionManagement>
 
     <repositories>
+        <repository>
+            <id>vaadin-prereleases</id>
+            <url>https://maven.vaadin.com/vaadin-prereleases</url>
+        </repository>
+        <repository>
+            <id>vaadin-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
+        </repository>
         <repository>
             <id>webjars</id>
             <url>https://dl.bintray.com/webjars/maven</url>
@@ -293,6 +301,35 @@
                     </plugin>
                 </plugins>
             </build>
+        </profile>
+        <profile>
+            <id>runTests</id>
+            <dependencies>
+                <dependency>
+                    <groupId>com.vaadin</groupId>
+                    <artifactId>flow-server</artifactId>
+                    <version>${flow.version}</version>
+                    <scope>compile</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.vaadin</groupId>
+                    <artifactId>flow-client</artifactId>
+                    <version>${flow.version}</version>
+                    <scope>compile</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.vaadin</groupId>
+                    <artifactId>flow-data</artifactId>
+                    <version>${flow.version}</version>
+                    <scope>compile</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.vaadin</groupId>
+                    <artifactId>flow-html-components</artifactId>
+                    <version>${flow.version}</version>
+                    <scope>compile</scope>
+                </dependency>
+            </dependencies>
         </profile>
     </profiles>
 </project>
