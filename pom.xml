@@ -34,6 +34,14 @@
     </properties>
 
     <distributionManagement>
+        <snapshotRepository>
+            <id>vaadin-snapshots</id>
+            <name>Vaadin snapshot repository</name>
+            <url>https://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <repositories>
         <repository>
             <id>vaadin-staging</id>
             <name>Vaadin release staging repository</name>
@@ -47,14 +55,6 @@
             <id>vaadin-snapshots</id>
             <url>https://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
         </repository>
-        <snapshotRepository>
-            <id>vaadin-snapshots</id>
-            <name>Vaadin snapshot repository</name>
-            <url>https://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
-
-    <repositories>
         <repository>
             <id>webjars</id>
             <url>https://dl.bintray.com/webjars/maven</url>
