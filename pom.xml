@@ -305,11 +305,6 @@
             <dependencies>
                 <dependency>
                     <groupId>com.vaadin</groupId>
-                    <artifactId>flow-test-util</artifactId>
-                    <version>${project.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>com.vaadin</groupId>
                     <artifactId>flow-server</artifactId>
                     <version>${flow.version}</version>
                     <scope>compile</scope>
