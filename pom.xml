@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -35,9 +36,9 @@
 
     <distributionManagement>
         <repository>
-           <id>vaadin-staging</id>
-           <name>Vaadin release staging repository</name>
-           <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>vaadin-staging</id>
+            <name>Vaadin release staging repository</name>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
         <snapshotRepository>
             <id>vaadin-snapshots</id>
@@ -301,10 +302,12 @@
                     </plugin>
                 </plugins>
             </build>
-        </profile>
-        <profile>
-            <id>runTests</id>
             <dependencies>
+                <dependency>
+                    <groupId>com.vaadin</groupId>
+                    <artifactId>flow-test-util</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
                 <dependency>
                     <groupId>com.vaadin</groupId>
                     <artifactId>flow-server</artifactId>
@@ -328,6 +331,11 @@
                     <artifactId>flow-html-components</artifactId>
                     <version>${flow.version}</version>
                     <scope>compile</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.vaadin</groupId>
+                    <artifactId>flow-test-util</artifactId>
+                    <version>${project.version}</version>
                 </dependency>
             </dependencies>
         </profile>
