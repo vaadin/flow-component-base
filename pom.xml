@@ -273,6 +273,35 @@
         </pluginManagement>
     </build>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>flow-server</artifactId>
+            <version>${flow.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>flow-client</artifactId>
+            <version>${flow.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>flow-data</artifactId>
+            <version>${flow.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>flow-html-components</artifactId>
+            <version>${flow.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>flow-test-util</artifactId>
+            <version>${flow.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
     <profiles>
         <profile>
             <id>local-run</id>
@@ -302,37 +331,6 @@
                     </plugin>
                 </plugins>
             </build>
-            <dependencies>
-                <dependency>
-                    <groupId>com.vaadin</groupId>
-                    <artifactId>flow-server</artifactId>
-                    <version>${flow.version}</version>
-                    <scope>compile</scope>
-                </dependency>
-                <dependency>
-                    <groupId>com.vaadin</groupId>
-                    <artifactId>flow-client</artifactId>
-                    <version>${flow.version}</version>
-                    <scope>compile</scope>
-                </dependency>
-                <dependency>
-                    <groupId>com.vaadin</groupId>
-                    <artifactId>flow-data</artifactId>
-                    <version>${flow.version}</version>
-                    <scope>compile</scope>
-                </dependency>
-                <dependency>
-                    <groupId>com.vaadin</groupId>
-                    <artifactId>flow-html-components</artifactId>
-                    <version>${flow.version}</version>
-                    <scope>compile</scope>
-                </dependency>
-                <dependency>
-                    <groupId>com.vaadin</groupId>
-                    <artifactId>flow-test-util</artifactId>
-                    <version>${flow.version}</version>
-                </dependency>
-            </dependencies>
         </profile>
     </profiles>
 </project>
