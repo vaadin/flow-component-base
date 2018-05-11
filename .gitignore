@@ -6,3 +6,7 @@
 .settings
 .classpath
 *.iml
+
+# Idea files
+.idea/
+*.iml
