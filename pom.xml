@@ -282,7 +282,9 @@
         <profile>
             <id>local-run</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <property>
+                    <name>!test.use.hub</name>
+                </property>
             </activation>
             <build>
                 <plugins>
