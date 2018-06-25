@@ -4,6 +4,9 @@ This project is just a `pom` containing common configuration for individual comp
 
 This allows pom-files of individual components to become very small, as they only need to specify dependencies required by the particular component.
 
+ - This branch (`1.0`) is for V10 maintenance
+ - `master` branch is for V11 development
+
 ## Flow Components as Git submodules
 All the Flow components have been added as submodules to this project. You can easily get all of them with:
  - <code> git clone  https://github.com/vaadin/flow-component-base.git --recurse-submodules</code> (or after cloning `flow-component-base` use <code>git submodule init</code> instead)
