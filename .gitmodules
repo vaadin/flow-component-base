@@ -52,3 +52,6 @@
 [submodule "vaadin-list-box-flow"]
 	path = vaadin-list-box-flow
 	url = https://github.com/vaadin/vaadin-list-box-flow.git
+[submodule "vaadin-context-menu-flow"]
+	path = vaadin-context-menu-flow
+	url = git@github.com:vaadin/vaadin-context-menu-flow.git
