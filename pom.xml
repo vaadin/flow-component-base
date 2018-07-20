@@ -325,6 +325,17 @@
                     </exclusion>
                 </exclusions>
             </dependency>
+            <dependency>
+                <groupId>org.webjars.bowergithub.vaadin</groupId>
+                <artifactId>vaadin-context-menu</artifactId>
+                <version>4.0.1</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.webjars.bowergithub.polymerelements</groupId>
+                        <artifactId>iron-flex-layout</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
 
             <dependency>
                 <groupId>org.webjars.bowergithub.polymerelements</groupId>
@@ -386,6 +397,22 @@
                 <groupId>org.webjars.bowergithub.polymerelements</groupId>
                 <artifactId>iron-media-query</artifactId>
                 <version>2.1.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.webjars.bowergithub.polymer</groupId>
+                <artifactId>polymer</artifactId>
+                <version>2.6.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.webjars.bowergithub.webcomponents</groupId>
+                <artifactId>webcomponentsjs</artifactId>
+                <version>1.2.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.webjars.bowergithub.webcomponents</groupId>
+                <artifactId>shadycss</artifactId>
+                <version>1.2.1</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -591,17 +618,14 @@
         <dependency>
             <groupId>org.webjars.bowergithub.polymer</groupId>
             <artifactId>polymer</artifactId>
-            <version>2.6.0</version>
         </dependency>
         <dependency>
             <groupId>org.webjars.bowergithub.webcomponents</groupId>
             <artifactId>webcomponentsjs</artifactId>
-            <version>1.2.2</version>
         </dependency>
         <dependency>
             <groupId>org.webjars.bowergithub.webcomponents</groupId>
             <artifactId>shadycss</artifactId>
-            <version>1.2.1</version>
         </dependency>
     </dependencies>
 
