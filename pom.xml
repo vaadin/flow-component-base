@@ -414,6 +414,11 @@
                 <artifactId>iron-media-query</artifactId>
                 <version>2.1.0</version>
             </dependency>
+            <dependency>
+                <groupId>org.webjars.bowergithub.polymerelements</groupId>
+                <artifactId>iron-test-helpers</artifactId>
+                <version>2.0.1</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.webjars.bowergithub.polymer</groupId>
