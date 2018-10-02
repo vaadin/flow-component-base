@@ -4,9 +4,8 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.vaadin</groupId>
     <artifactId>flow-component-base</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.2-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Flow component base</name>
     <description>Parent pom for individual component modules</description>
@@ -19,7 +18,7 @@
 
     <properties>
         <!-- Should be overridden in child modules -->
-        <flow.version>1.1-SNAPSHOT</flow.version>
+        <flow.version>1.2-SNAPSHOT</flow.version>
 
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
