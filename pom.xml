@@ -132,7 +132,7 @@
             <dependency>
                 <groupId>org.webjars.bowergithub.vaadin</groupId>
                 <artifactId>vaadin-date-picker</artifactId>
-                <version>3.2.0</version>
+                <version>3.3.0-beta1</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.webjars.bowergithub.polymerelements</groupId>
@@ -143,7 +143,7 @@
             <dependency>
                 <groupId>org.webjars.bowergithub.vaadin</groupId>
                 <artifactId>vaadin-dialog</artifactId>
-                <version>2.1.0</version>
+                <version>2.2.0-beta1</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.webjars.bowergithub.polymerelements</groupId>
@@ -154,7 +154,7 @@
             <dependency>
                 <groupId>org.webjars.bowergithub.vaadin</groupId>
                 <artifactId>vaadin-combo-box</artifactId>
-                <version>4.1.0</version>
+                <version>4.2.0-alpha4</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.webjars.bowergithub.polymerelements</groupId>
@@ -176,7 +176,7 @@
             <dependency>
                 <groupId>org.webjars.bowergithub.vaadin</groupId>
                 <artifactId>vaadin-grid</artifactId>
-                <version>5.1.0</version>
+                <version>5.2.0-beta1</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.webjars.bowergithub.polymerelements</groupId>
@@ -209,7 +209,7 @@
             <dependency>
                 <groupId>org.webjars.bowergithub.vaadin</groupId>
                 <artifactId>vaadin-notification</artifactId>
-                <version>1.1.0</version>
+                <version>1.2.0-beta1</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.webjars.bowergithub.polymerelements</groupId>
@@ -264,7 +264,7 @@
             <dependency>
                 <groupId>org.webjars.bowergithub.vaadin</groupId>
                 <artifactId>vaadin-context-menu</artifactId>
-                <version>4.1.0</version>
+                <version>4.2.0-beta1</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.webjars.bowergithub.polymerelements</groupId>
@@ -319,7 +319,7 @@
             <dependency>
                 <groupId>org.webjars.bowergithub.vaadin</groupId>
                 <artifactId>vaadin-overlay</artifactId>
-                <version>3.1.1</version>
+                <version>3.2.0</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.webjars.bowergithub.polymerelements</groupId>
