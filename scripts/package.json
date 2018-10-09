@@ -1,0 +1,22 @@
+{
+  "name": "flow-component-base",
+  "version": "1.0.0",
+  "description": "This project is just a `pom` containing common configuration for individual component modules. It includes for an example the build configuration for copying static resources and source codes so they can be shown in the demo.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vaadin/flow-component-base.git"
+  },
+  "author": "Vaadin Ltd.",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/vaadin/flow-component-base/issues"
+  },
+  "homepage": "https://github.com/vaadin/flow-component-base#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0"
+  }
+}
