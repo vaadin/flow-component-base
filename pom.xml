@@ -44,6 +44,7 @@
         <osgi.bundle.symbolic.name>${project.groupId}.${project.artifactId}</osgi.bundle.symbolic.name>
         <osgi.bundle.package.private></osgi.bundle.package.private>
         <osgi.bundle.bundle.activator></osgi.bundle.bundle.activator>
+        <osgi.bundle.description></osgi.bundle.description>
     </properties>
 
     <distributionManagement>
@@ -629,6 +630,7 @@
                         <Bundle-Activator>${osgi.bundle.bundle.activator}</Bundle-Activator>
                         <Bundle-Version>${osgi.bundle.version}</Bundle-Version>
                         <Bundle-License>${osgi.bundle.license}</Bundle-License>
+                        <Bundle-Description>${osgi.bundle.description}</Bundle-Description>
                         <_removeheaders>Built-By</_removeheaders>
                     </instructions>
                 </configuration>
