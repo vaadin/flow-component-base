@@ -1,0 +1,2 @@
+Existence of this file is used as activation condition in maven profiles. It
+shows that the current module is just the parent with pom packaging type.

@@ -555,28 +555,6 @@
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.0.2</version>
-                <configuration>
-                    <finalName>${project.artifactId}</finalName>
-                </configuration>
-                <executions>
-                    <execution>
-                        <configuration>
-                            <includes>
-                                <include>**/demo/**</include>
-                                <include>**/META-INF/resources/**</include>
-                            </includes>
-                            <classifier>demo</classifier>
-                        </configuration>
-                        <goals>
-                            <goal>test-jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
                 <version>3.0.1</version>
                 <executions>
@@ -704,6 +682,83 @@
     </dependencies>
 
     <profiles>
+        <profile>
+            <id>with-manifest</id>
+            <activation>
+                <file>
+                    <missing>${basedir}/.parent-indicator</missing>
+                </file>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-jar-plugin</artifactId>
+                        <version>3.0.2</version>
+                        <configuration>
+                            <finalName>${project.artifactId}</finalName>
+                            <archive>
+                                <manifestFile>
+                                    ${project.build.outputDirectory}/META-INF/MANIFEST.MF
+                                </manifestFile>
+                            </archive>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>test-jar</id>
+                                <configuration>
+                                    <includes>
+                                        <include>**/demo/**</include>
+                                        <include>**/META-INF/resources/**</include>
+                                    </includes>
+                                    <classifier>demo</classifier>
+                                </configuration>
+                                <goals>
+                                    <goal>test-jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>without-manifest</id>
+            <activation>
+                <file>
+                    <exists>${basedir}/.parent-indicator</exists>
+                </file>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-jar-plugin</artifactId>
+                        <version>3.0.2</version>
+                        <configuration>
+                            <finalName>${project.artifactId}</finalName>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>test-jar</id>
+                                <configuration>
+                                    <includes>
+                                        <include>**/demo/**</include>
+                                        <include>**/META-INF/resources/**</include>
+                                    </includes>
+                                    <classifier>demo</classifier>
+                                </configuration>
+                                <goals>
+                                    <goal>test-jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
         <profile>
             <id>local-run</id>
             <activation>
