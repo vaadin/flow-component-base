@@ -41,7 +41,7 @@
         <osgi.bundle.required.execution.environment>JavaSE-1.8</osgi.bundle.required.execution.environment>
         <osgi.bundle.license>http://www.apache.org/licenses/LICENSE-2.0</osgi.bundle.license>
         <osgi.bundle.name>${project.artifactId}</osgi.bundle.name>
-        <osgi.bundle.symbolic.name>${project.groupId}.${project.artifactId}</osgi.bundle.symbolic.name>
+        <osgi.bundle.symbolic.name>${project.groupId}.flow.component.${component.package.name}</osgi.bundle.symbolic.name>
         <osgi.bundle.package.private></osgi.bundle.package.private>
         <osgi.bundle.bundle.activator></osgi.bundle.bundle.activator>
         <osgi.bundle.description></osgi.bundle.description>
@@ -623,6 +623,32 @@
                         <goals>
                             <goal>parse-version</goal>
                         </goals>
+                    </execution>
+                    <execution>
+                        <id>extract-component-name</id>
+                        <goals>
+                            <goal>regex-property</goal>
+                        </goals>
+                        <configuration>
+                            <name>component.name</name>
+                            <regex>vaadin-(\w+(-\w+)*)-flow</regex>
+                            <value>${project.artifactId}</value>
+                            <replacement>$1</replacement>
+                            <failIfNoMatch>false</failIfNoMatch>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>extract-component-package-name</id>
+                        <goals>
+                            <goal>regex-property</goal>
+                        </goals>
+                        <configuration>
+                            <name>component.package.name</name>
+                            <regex>-</regex>
+                            <value>${component.name}</value>
+                            <replacement></replacement>
+                            <failIfNoMatch>false</failIfNoMatch>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
