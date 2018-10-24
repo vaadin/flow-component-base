@@ -78,7 +78,7 @@
             <dependency>
                 <groupId>org.webjars.bowergithub.vaadin</groupId>
                 <artifactId>vaadin-checkbox</artifactId>
-                <version>2.1.1</version>
+                <version>2.1.2</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.webjars.bowergithub.polymerelements</groupId>
@@ -155,7 +155,7 @@
             <dependency>
                 <groupId>org.webjars.bowergithub.vaadin</groupId>
                 <artifactId>vaadin-combo-box</artifactId>
-                <version>4.0.1</version>
+                <version>4.0.2</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.webjars.bowergithub.polymerelements</groupId>
@@ -254,7 +254,7 @@
             <dependency>
                 <groupId>org.webjars.bowergithub.vaadin</groupId>
                 <artifactId>vaadin-upload</artifactId>
-                <version>4.0.0</version>
+                <version>4.0.1</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.webjars.bowergithub.polymerelements</groupId>
@@ -265,32 +265,32 @@
             <dependency>
                 <groupId>org.webjars.bowergithub.vaadin</groupId>
                 <artifactId>vaadin-themable-mixin</artifactId>
-                <version>1.1.6</version>
+                <version>1.2.1</version>
             </dependency>
             <dependency>
                 <groupId>org.webjars.bowergithub.vaadin</groupId>
                 <artifactId>vaadin-control-state-mixin</artifactId>
-                <version>2.0.3</version>
+                <version>2.1.1</version>
             </dependency>
             <dependency>
                 <groupId>org.webjars.bowergithub.vaadin</groupId>
                 <artifactId>vaadin-element-mixin</artifactId>
-                <version>1.0.2</version>
+                <version>1.1.2</version>
             </dependency>
             <dependency>
                 <groupId>org.webjars.bowergithub.vaadin</groupId>
                 <artifactId>vaadin-usage-statistics</artifactId>
-                <version>1.0.8</version>
+                <version>1.1.0</version>
             </dependency>
             <dependency>
                 <groupId>org.webjars.bowergithub.vaadin</groupId>
                 <artifactId>vaadin-development-mode-detector</artifactId>
-                <version>1.0.3</version>
+                <version>1.1.0</version>
             </dependency>
             <dependency>
                 <groupId>org.webjars.bowergithub.vaadin</groupId>
                 <artifactId>vaadin-list-mixin</artifactId>
-                <version>2.0.0</version>
+                <version>2.0.1</version>
             </dependency>
             <dependency>
                 <groupId>org.webjars.bowergithub.vaadin</groupId>
@@ -306,7 +306,7 @@
             <dependency>
                 <groupId>org.webjars.bowergithub.vaadin</groupId>
                 <artifactId>vaadin-overlay</artifactId>
-                <version>3.0.3</version>
+                <version>3.0.4</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.webjars.bowergithub.polymerelements</groupId>
