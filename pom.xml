@@ -33,6 +33,18 @@
         <maven.deploy.plugin.version>2.8.2</maven.deploy.plugin.version>
         <driver.binary.downloader.maven.plugin.version>1.0.14
         </driver.binary.downloader.maven.plugin.version>
+
+        <!-- OSGi support -->
+        <osgi.bundle.import.package>*</osgi.bundle.import.package>
+        <osgi.bundle.export.package>com.vaadin.flow.component.*;-noimport:=true</osgi.bundle.export.package>
+        <osgi.bundle.version>${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</osgi.bundle.version>
+        <osgi.bundle.required.execution.environment>JavaSE-1.8</osgi.bundle.required.execution.environment>
+        <osgi.bundle.license>http://www.apache.org/licenses/LICENSE-2.0</osgi.bundle.license>
+        <osgi.bundle.name>${project.artifactId}</osgi.bundle.name>
+        <osgi.bundle.symbolic.name>${project.groupId}.flow.component.${component.package.name}</osgi.bundle.symbolic.name>
+        <osgi.bundle.package.private></osgi.bundle.package.private>
+        <osgi.bundle.bundle.activator></osgi.bundle.bundle.activator>
+        <osgi.bundle.description></osgi.bundle.description>
     </properties>
 
     <distributionManagement>
@@ -543,28 +555,6 @@
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.0.2</version>
-                <configuration>
-                    <finalName>${project.artifactId}</finalName>
-                </configuration>
-                <executions>
-                    <execution>
-                        <configuration>
-                            <includes>
-                                <include>**/demo/**</include>
-                                <include>**/META-INF/resources/**</include>
-                            </includes>
-                            <classifier>demo</classifier>
-                        </configuration>
-                        <goals>
-                            <goal>test-jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
                 <version>3.0.1</version>
                 <executions>
@@ -594,6 +584,73 @@
                     <quiet>true</quiet>
                     <additionalparam>-Xdoclint:none</additionalparam>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <executions>
+                    <execution>
+                        <id>bundle-manifest</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>manifest</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <instructions>
+                        <Bundle-Name>${project.artifactId}</Bundle-Name>
+                        <Bundle-SymbolicName>${osgi.bundle.symbolic.name}</Bundle-SymbolicName>
+                        <Import-Package>${osgi.bundle.import.package}</Import-Package>
+                        <Export-Package>${osgi.bundle.export.package}</Export-Package>
+                        <Private-Package>${osgi.bundle.package.private}</Private-Package>
+                        <Bundle-Activator>${osgi.bundle.bundle.activator}</Bundle-Activator>
+                        <Bundle-Version>${osgi.bundle.version}</Bundle-Version>
+                        <Bundle-License>${osgi.bundle.license}</Bundle-License>
+                        <Bundle-Description>${osgi.bundle.description}</Bundle-Description>
+                        <_removeheaders>Built-By</_removeheaders>
+                    </instructions>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>parse-version</id>
+                        <goals>
+                            <goal>parse-version</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>extract-component-name</id>
+                        <goals>
+                            <goal>regex-property</goal>
+                        </goals>
+                        <configuration>
+                            <name>component.name</name>
+                            <regex>vaadin-(\w+(-\w+)*)-flow</regex>
+                            <value>${project.artifactId}</value>
+                            <replacement>$1</replacement>
+                            <failIfNoMatch>false</failIfNoMatch>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>extract-component-package-name</id>
+                        <goals>
+                            <goal>regex-property</goal>
+                        </goals>
+                        <configuration>
+                            <name>component.package.name</name>
+                            <regex>-</regex>
+                            <value>${component.name}</value>
+                            <replacement></replacement>
+                            <failIfNoMatch>false</failIfNoMatch>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
         <pluginManagement>
@@ -651,6 +708,83 @@
     </dependencies>
 
     <profiles>
+        <profile>
+            <id>with-manifest</id>
+            <activation>
+                <file>
+                    <missing>${basedir}/.parent-indicator</missing>
+                </file>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-jar-plugin</artifactId>
+                        <version>3.0.2</version>
+                        <configuration>
+                            <finalName>${project.artifactId}</finalName>
+                            <archive>
+                                <manifestFile>
+                                    ${project.build.outputDirectory}/META-INF/MANIFEST.MF
+                                </manifestFile>
+                            </archive>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>test-jar</id>
+                                <configuration>
+                                    <includes>
+                                        <include>**/demo/**</include>
+                                        <include>**/META-INF/resources/**</include>
+                                    </includes>
+                                    <classifier>demo</classifier>
+                                </configuration>
+                                <goals>
+                                    <goal>test-jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>without-manifest</id>
+            <activation>
+                <file>
+                    <exists>${basedir}/.parent-indicator</exists>
+                </file>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-jar-plugin</artifactId>
+                        <version>3.0.2</version>
+                        <configuration>
+                            <finalName>${project.artifactId}</finalName>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>test-jar</id>
+                                <configuration>
+                                    <includes>
+                                        <include>**/demo/**</include>
+                                        <include>**/META-INF/resources/**</include>
+                                    </includes>
+                                    <classifier>demo</classifier>
+                                </configuration>
+                                <goals>
+                                    <goal>test-jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
         <profile>
             <id>local-run</id>
             <activation>
