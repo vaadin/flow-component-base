@@ -37,7 +37,7 @@
         <!-- OSGi support -->
         <osgi.bundle.import.package>*</osgi.bundle.import.package>
         <osgi.bundle.export.package>com.vaadin.flow.component.*;-noimport:=true</osgi.bundle.export.package>
-        <osgi.bundle.version>${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</osgi.bundle.version>
+        <osgi.bundle.version>${parsedVersion.majorVersion}${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</osgi.bundle.version>
         <osgi.bundle.required.execution.environment>JavaSE-1.8</osgi.bundle.required.execution.environment>
         <osgi.bundle.license>http://www.apache.org/licenses/LICENSE-2.0</osgi.bundle.license>
         <osgi.bundle.name>${project.artifactId}</osgi.bundle.name>
