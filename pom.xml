@@ -37,7 +37,6 @@
         <!-- OSGi support -->
         <osgi.bundle.import.package>*</osgi.bundle.import.package>
         <osgi.bundle.export.package>com.vaadin.flow.component.*;-noimport:=true</osgi.bundle.export.package>
-        <osgi.bundle.version>${parsedVersion.majorVersion}${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}</osgi.bundle.version>
         <osgi.bundle.required.execution.environment>JavaSE-1.8</osgi.bundle.required.execution.environment>
         <osgi.bundle.license>http://www.apache.org/licenses/LICENSE-2.0</osgi.bundle.license>
         <osgi.bundle.name>${project.artifactId}</osgi.bundle.name>
@@ -600,13 +599,12 @@
                 </executions>
                 <configuration>
                     <instructions>
-                        <Bundle-Name>${project.artifactId}</Bundle-Name>
+                        <Bundle-Name>${osgi.bundle.name}</Bundle-Name>
                         <Bundle-SymbolicName>${osgi.bundle.symbolic.name}</Bundle-SymbolicName>
                         <Import-Package>${osgi.bundle.import.package}</Import-Package>
                         <Export-Package>${osgi.bundle.export.package}</Export-Package>
                         <Private-Package>${osgi.bundle.package.private}</Private-Package>
                         <Bundle-Activator>${osgi.bundle.bundle.activator}</Bundle-Activator>
-                        <Bundle-Version>${osgi.bundle.version}</Bundle-Version>
                         <Bundle-License>${osgi.bundle.license}</Bundle-License>
                         <Bundle-Description>${osgi.bundle.description}</Bundle-Description>
                         <_removeheaders>Built-By</_removeheaders>
@@ -618,12 +616,6 @@
                 <artifactId>build-helper-maven-plugin</artifactId>
                 <version>3.0.0</version>
                 <executions>
-                    <execution>
-                        <id>parse-version</id>
-                        <goals>
-                            <goal>parse-version</goal>
-                        </goals>
-                    </execution>
                     <execution>
                         <id>extract-component-name</id>
                         <goals>
@@ -727,6 +719,9 @@
                                 <manifestFile>
                                     ${project.build.outputDirectory}/META-INF/MANIFEST.MF
                                 </manifestFile>
+                                <manifestEntries>
+                                    <Built-By></Built-By>
+                                </manifestEntries>
                             </archive>
                         </configuration>
                         <executions>
