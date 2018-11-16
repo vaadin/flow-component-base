@@ -456,9 +456,6 @@
 	                    </systemPropertyVariables>
 	                </configuration>
 	            </plugin>                
- 
-	            
-            
 	             <plugin>
 	                <artifactId>maven-resources-plugin</artifactId>
 	                <version>${maven.resources.plugin.version}</version>
@@ -551,13 +548,6 @@
     </build>
 
     <dependencies>
-        <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>flow-test-util</artifactId>
-            <version>${flow.version}</version>
-            <scope>test</scope>
-        </dependency>
-
         <dependency>
             <groupId>org.webjars.bowergithub.polymer</groupId>
             <artifactId>polymer</artifactId>
