@@ -301,107 +301,6 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>${jetty.version}</version>
-                <configuration>
-                    <httpConnector>
-                        <port>9998</port>
-                    </httpConnector>
-                    <scanIntervalSeconds>-1</scanIntervalSeconds>
-                    <stopPort>9999</stopPort>
-                    <stopWait>5</stopWait>
-                    <stopKey>foo</stopKey>
-                    <!-- Use TestScope because the test classes are in the
-                        test package. -->
-                    <useTestScope>true</useTestScope>
-                    <webAppConfig>
-                        <containerIncludeJarPattern>^$</containerIncludeJarPattern>
-                    </webAppConfig>
-                </configuration>
-                <executions>
-                    <!-- start and stop jetty (running our app) when running
-                        integration tests -->
-                    <execution>
-                        <id>start-jetty</id>
-                        <phase>pre-integration-test</phase>
-                        <goals>
-                            <goal>start</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>stop-jetty</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>stop</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>${maven.failsafe.plugin.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <systemPropertyVariables>
-                        <webdriver.chrome.driver>${webdriver.chrome.driver}</webdriver.chrome.driver>
-                    </systemPropertyVariables>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>${maven.resources.plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>copy-resources-for-demo-website</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.build.directory}/test-classes</outputDirectory>
-                            <overwrite>true</overwrite>
-                            <resources>
-                                <resource>
-                                    <directory>src/test/java</directory>
-                                </resource>
-                                <resource>
-                                    <directory>src/main/webapp</directory>
-                                    <targetPath>META-INF/resources</targetPath>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>com.googlecode.maven-download-plugin</groupId>
-                <artifactId>download-maven-plugin</artifactId>
-                <version>1.3.0</version>
-                <executions>
-                    <execution>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>wget</goal>
-                        </goals>
-                        <configuration>
-                            <url>https://raw.githubusercontent.com/vaadin/flow/master/drivers.xml</url>
-                            <outputFileName>drivers.xml</outputFileName>
-                            <outputDirectory>${project.build.directory}</outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
                 <version>3.0.1</version>
@@ -415,6 +314,7 @@
                     </execution>
                 </executions>
             </plugin>
+            
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -433,6 +333,7 @@
                     <additionalparam>-Xdoclint:none</additionalparam>
                 </configuration>
             </plugin>
+            
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
@@ -461,42 +362,164 @@
                     </instructions>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-                <version>3.0.0</version>
-                <executions>
-                    <execution>
-                        <id>extract-component-name</id>
-                        <goals>
-                            <goal>regex-property</goal>
-                        </goals>
-                        <configuration>
-                            <name>component.name</name>
-                            <regex>vaadin-(\w+(-\w+)*)-flow</regex>
-                            <value>${project.artifactId}</value>
-                            <replacement>$1</replacement>
-                            <failIfNoMatch>false</failIfNoMatch>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>extract-component-package-name</id>
-                        <goals>
-                            <goal>regex-property</goal>
-                        </goals>
-                        <configuration>
-                            <name>component.package.name</name>
-                            <regex>-</regex>
-                            <value>${component.name}</value>
-                            <replacement></replacement>
-                            <failIfNoMatch>false</failIfNoMatch>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+             <plugin>
+	                <groupId>com.googlecode.maven-download-plugin</groupId>
+	                <artifactId>download-maven-plugin</artifactId>
+	                <version>1.3.0</version>
+	                <executions>
+	                    <execution>
+	                        <phase>process-resources</phase>
+	                        <goals>
+	                            <goal>wget</goal>
+	                        </goals>
+	                        <configuration>
+	                            <url>https://raw.githubusercontent.com/vaadin/flow/master/drivers.xml</url>
+	                            <outputFileName>drivers.xml</outputFileName>
+	                            <outputDirectory>${project.build.directory}</outputDirectory>
+	                        </configuration>
+	                    </execution>
+	                </executions>
+	            </plugin>
+	            
         </plugins>
         <pluginManagement>
             <plugins>
+            	<plugin>
+	               <groupId>org.apache.maven.plugins</groupId>
+	               <artifactId>maven-jar-plugin</artifactId>
+	               <configuration>
+						<skip>true</skip>
+					</configuration>
+	            </plugin>
+	            <plugin>
+	                <groupId>org.eclipse.jetty</groupId>
+	                <artifactId>jetty-maven-plugin</artifactId>
+	                <version>${jetty.version}</version>
+	                <configuration>
+	                    <httpConnector>
+	                        <port>9998</port>
+	                    </httpConnector>
+	                    <scanIntervalSeconds>-1</scanIntervalSeconds>
+	                    <stopPort>9999</stopPort>
+	                    <stopWait>5</stopWait>
+	                    <stopKey>foo</stopKey>
+	                    <!-- Use TestScope because the test classes are in the
+	                        test package. -->
+	                    <useTestScope>true</useTestScope>
+	                    <webAppConfig>
+	                        <containerIncludeJarPattern>^$</containerIncludeJarPattern>
+	                         <webInfIncludeJarPattern>^((?!flow-server-production-mode).)*$</webInfIncludeJarPattern>
+	                        <resourceBases>
+	                            <resourceBase>${project.build.directory}/${project.build.finalName}</resourceBase>
+	                        </resourceBases>
+	                    </webAppConfig>
+	                </configuration>
+	                <executions>
+	                    <!-- start and stop jetty (running our app) when running
+	                        integration tests -->
+	                    <execution>
+	                        <id>start-jetty</id>
+	                        <phase>pre-integration-test</phase>
+	                        <goals>
+	                            <goal>deploy-war</goal>
+	                        </goals>
+	                        <configuration>
+                            	<daemon>true</daemon>
+                            	<scanIntervalSeconds>0</scanIntervalSeconds>
+                        	</configuration>
+	                    </execution>
+	                    <execution>
+	                        <id>stop-jetty</id>
+	                        <phase>post-integration-test</phase>
+	                        <goals>
+	                            <goal>stop</goal>
+	                        </goals>
+	                    </execution>
+	                </executions>
+	            </plugin>
+
+	            <plugin>
+	                <groupId>org.apache.maven.plugins</groupId>
+	                <artifactId>maven-failsafe-plugin</artifactId>
+	                <version>${maven.failsafe.plugin.version}</version>
+	                <executions>
+	                    <execution>
+	                        <goals>
+	                            <goal>integration-test</goal>
+	                            <goal>verify</goal>
+	                        </goals>
+	                    </execution>
+	                </executions>
+	                <configuration>
+	                    <systemPropertyVariables>
+	                        <webdriver.chrome.driver>${webdriver.chrome.driver}</webdriver.chrome.driver>
+	                    </systemPropertyVariables>
+	                </configuration>
+	            </plugin>                
+ 
+	            
+            
+	             <plugin>
+	                <artifactId>maven-resources-plugin</artifactId>
+	                <version>${maven.resources.plugin.version}</version>
+	                <executions>
+	                    <execution>
+	                        <id>copy-resources-for-demo-website</id>
+	                        <phase>process-resources</phase>
+	                        <goals>
+	                            <goal>copy-resources</goal>
+	                        </goals>
+	                        <configuration>
+	                            <outputDirectory>${project.build.directory}/test-classes</outputDirectory>
+	                            <overwrite>true</overwrite>
+	                            <resources>
+	                                <resource>
+	                                    <directory>src/test/java</directory>
+	                                </resource>
+	                                <resource>
+	                                    <directory>src/main/webapp</directory>
+	                                    <targetPath>META-INF/resources</targetPath>
+	                                </resource>
+	                            </resources>
+	                        </configuration>
+	                    </execution>
+	                </executions>
+	            </plugin>
+
+	            <plugin>
+	                <groupId>org.codehaus.mojo</groupId>
+	                <artifactId>build-helper-maven-plugin</artifactId>
+	                <version>3.0.0</version>
+	                <executions>
+	                    <execution>
+	                        <id>extract-component-name</id>
+	                        <goals>
+	                            <goal>regex-property</goal>
+	                        </goals>
+	                        <configuration>
+	                            <name>component.name</name>
+	                            <regex>vaadin-(\w+(-\w+)*)-flow</regex>
+	                            <value>${project.artifactId}</value>
+	                            <replacement>$1</replacement>
+	                            <failIfNoMatch>false</failIfNoMatch>
+	                        </configuration>
+	                    </execution>
+	                    <execution>
+	                        <id>extract-component-package-name</id>
+	                        <goals>
+	                            <goal>regex-property</goal>
+	                        </goals>
+	                        <configuration>
+	                            <name>component.package.name</name>
+	                            <regex>-</regex>
+	                            <value>${component.name}</value>
+	                            <replacement></replacement>
+	                            <failIfNoMatch>false</failIfNoMatch>
+	                        </configuration>
+	                    </execution>
+	                </executions>
+	            </plugin>
+                              
                 <plugin>
                     <groupId>org.eclipse.m2e</groupId>
                     <artifactId>lifecycle-mapping</artifactId>
