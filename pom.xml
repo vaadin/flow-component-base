@@ -26,7 +26,8 @@
         <project.reporting.outputEncoding>UTF-8
         </project.reporting.outputEncoding>
 
-        <!-- 9.4.X version is causing component builds fail on cannot connect to server -->
+        <!-- 9.4.X version is causing component builds fail on cannot connect 
+            to server -->
         <jetty.version>9.3.24.v20180605</jetty.version>
         <maven.failsafe.plugin.version>2.20</maven.failsafe.plugin.version>
         <maven.resources.plugin.version>3.0.2</maven.resources.plugin.version>
@@ -295,6 +296,17 @@
                 <artifactId>shadycss</artifactId>
                 <version>1.5.0-1</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.osgi</groupId>
+                <artifactId>osgi.cmpn</artifactId>
+                <version>6.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.osgi</groupId>
+                <artifactId>org.osgi.core</artifactId>
+                <version>6.0.0</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -312,7 +324,7 @@
                     <stopPort>9999</stopPort>
                     <stopWait>5</stopWait>
                     <stopKey>foo</stopKey>
-                    <!-- Use TestScope because the test classes are in the
+                    <!-- Use TestScope because the test classes are in the 
                         test package. -->
                     <useTestScope>true</useTestScope>
                     <webAppConfig>
@@ -320,7 +332,7 @@
                     </webAppConfig>
                 </configuration>
                 <executions>
-                    <!-- start and stop jetty (running our app) when running
+                    <!-- start and stop jetty (running our app) when running 
                         integration tests -->
                     <execution>
                         <id>start-jetty</id>
