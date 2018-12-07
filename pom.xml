@@ -144,7 +144,7 @@
             <dependency>
                 <groupId>org.webjars.bowergithub.vaadin</groupId>
                 <artifactId>vaadin-date-picker</artifactId>
-                <version>3.3.0</version>
+                <version>3.3.2</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.webjars.bowergithub.polymerelements</groupId>
@@ -188,7 +188,7 @@
             <dependency>
                 <groupId>org.webjars.bowergithub.vaadin</groupId>
                 <artifactId>vaadin-grid</artifactId>
-                <version>5.2.1</version>
+                <version>5.2.5</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.webjars.bowergithub.polymerelements</groupId>
@@ -276,7 +276,7 @@
             <dependency>
                 <groupId>org.webjars.bowergithub.vaadin</groupId>
                 <artifactId>vaadin-context-menu</artifactId>
-                <version>4.2.0</version>
+                <version>4.2.1</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.webjars.bowergithub.polymerelements</groupId>
