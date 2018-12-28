@@ -610,6 +610,7 @@
                     </execution>
                 </executions>
                 <configuration>
+                    <exportScr>true</exportScr>
                     <instructions>
                         <Bundle-Name>${osgi.bundle.name}</Bundle-Name>
                         <Bundle-SymbolicName>${osgi.bundle.symbolic.name}</Bundle-SymbolicName>
@@ -620,6 +621,10 @@
                         <Bundle-License>${osgi.bundle.license}</Bundle-License>
                         <Bundle-Description>${osgi.bundle.description}</Bundle-Description>
                         <_removeheaders>Built-By</_removeheaders>
+                        <!-- Enable processing of OSGI DS component annotations -->
+                        <_dsannotations>*</_dsannotations>
+                        <!-- Enable processing of OSGI metatype annotations -->
+                        <_metatypeannotations>*</_metatypeannotations>
                     </instructions>
                 </configuration>
             </plugin>
