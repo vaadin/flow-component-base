@@ -76,13 +76,6 @@
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <configuration>
-                        <skip>true</skip>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
                     <version>3.0.1</version>
                     <executions>
@@ -140,6 +133,10 @@
                             <Bundle-License>${osgi.bundle.license}</Bundle-License>
                             <Bundle-Description>${osgi.bundle.description}</Bundle-Description>
                             <_removeheaders>Built-By</_removeheaders>
+                            <!-- Enable processing of OSGI DS component annotations -->
+                            <_dsannotations>*</_dsannotations>
+                            <!-- Enable processing of OSGI metatype annotations -->
+                            <_metatypeannotations>*</_metatypeannotations>
                         </instructions>
                     </configuration>
                 </plugin>
@@ -288,6 +285,26 @@
                 </plugin>
 
                 <plugin>
+                    <groupId>com.lazerycode.selenium</groupId>
+                    <artifactId>driver-binary-downloader-maven-plugin</artifactId>
+                    <version>${driver.binary.downloader.maven.plugin.version}</version>
+                    <configuration>
+                        <onlyGetDriversForHostOperatingSystem>true</onlyGetDriversForHostOperatingSystem>
+                        <rootStandaloneServerDirectory>${project.build.directory}/driver</rootStandaloneServerDirectory>
+                        <downloadedZipFileDirectory>${project.build.directory}/driver_zips</downloadedZipFileDirectory>
+                        <customRepositoryMap>${project.build.directory}/drivers.xml</customRepositoryMap>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>pre-integration-test</phase>
+                            <goals>
+                                <goal>selenium</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
                     <groupId>org.eclipse.m2e</groupId>
                     <artifactId>lifecycle-mapping</artifactId>
                     <version>1.0.0</version>
@@ -340,146 +357,4 @@
         </dependency>
     </dependencies>
 
-    <profiles>
-        <profile>
-            <id>with-manifest</id>
-            <activation>
-                <file>
-                    <missing>${basedir}/.parent-indicator</missing>
-                </file>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-jar-plugin</artifactId>
-                        <version>3.0.2</version>
-                        <configuration>
-                            <finalName>${project.artifactId}</finalName>
-                            <archive>
-                                <manifestFile>
-                                    ${project.build.outputDirectory}/META-INF/MANIFEST.MF
-                                </manifestFile>
-                                <manifestEntries>
-                                    <Built-By></Built-By>
-                                </manifestEntries>
-                            </archive>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>test-jar</id>
-                                <configuration>
-                                    <includes>
-                                        <include>**/demo/**</include>
-                                        <include>**/META-INF/resources/**</include>
-                                    </includes>
-                                    <classifier>demo</classifier>
-                                </configuration>
-                                <goals>
-                                    <goal>test-jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-        <profile>
-            <id>without-manifest</id>
-            <activation>
-                <file>
-                    <exists>${basedir}/.parent-indicator</exists>
-                </file>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-jar-plugin</artifactId>
-                        <version>3.0.2</version>
-                        <configuration>
-                            <finalName>${project.artifactId}</finalName>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>test-jar</id>
-                                <configuration>
-                                    <includes>
-                                        <include>**/demo/**</include>
-                                        <include>**/META-INF/resources/**</include>
-                                    </includes>
-                                    <classifier>demo</classifier>
-                                </configuration>
-                                <goals>
-                                    <goal>test-jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-        <profile>
-            <id>local-run</id>
-            <activation>
-                <property>
-                    <name>!test.use.hub</name>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.lazerycode.selenium</groupId>
-                        <artifactId>driver-binary-downloader-maven-plugin</artifactId>
-                        <version>${driver.binary.downloader.maven.plugin.version}</version>
-                        <configuration>
-                            <onlyGetDriversForHostOperatingSystem>true</onlyGetDriversForHostOperatingSystem>
-                            <rootStandaloneServerDirectory>${project.build.directory}/driver</rootStandaloneServerDirectory>
-                            <downloadedZipFileDirectory>${project.build.directory}/driver_zips</downloadedZipFileDirectory>
-                            <customRepositoryMap>${project.build.directory}/drivers.xml</customRepositoryMap>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <phase>pre-integration-test</phase>
-                                <goals>
-                                    <goal>selenium</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>runTests</id>
-            <dependencies>
-                <dependency>
-                    <groupId>com.vaadin</groupId>
-                    <artifactId>flow-server</artifactId>
-                    <version>${flow.version}</version>
-                    <scope>compile</scope>
-                </dependency>
-                <dependency>
-                    <groupId>com.vaadin</groupId>
-                    <artifactId>flow-client</artifactId>
-                    <version>${flow.version}</version>
-                    <scope>compile</scope>
-                </dependency>
-                <dependency>
-                    <groupId>com.vaadin</groupId>
-                    <artifactId>flow-data</artifactId>
-                    <version>${flow.version}</version>
-                    <scope>compile</scope>
-                </dependency>
-                <dependency>
-                    <groupId>com.vaadin</groupId>
-                    <artifactId>flow-html-components</artifactId>
-                    <version>${flow.version}</version>
-                    <scope>compile</scope>
-                </dependency>
-            </dependencies>
-        </profile>
-    </profiles>
 </project>
