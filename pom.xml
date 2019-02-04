@@ -123,6 +123,7 @@
                         </execution>
                     </executions>
                     <configuration>
+                        <exportScr>true</exportScr>
                         <instructions>
                             <Bundle-Name>${osgi.bundle.name}</Bundle-Name>
                             <Bundle-SymbolicName>${osgi.bundle.symbolic.name}</Bundle-SymbolicName>
