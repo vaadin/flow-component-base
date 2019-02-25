@@ -48,16 +48,16 @@
 	url = git@github.com:vaadin/vaadin-upload-flow.git
 [submodule "vaadin-notification-flow"]
 	path = vaadin-notification-flow
-	url = https://github.com/vaadin/vaadin-notification-flow
+	url = git@github.com:vaadin/vaadin-notification-flow.git
 [submodule "vaadin-list-box-flow"]
 	path = vaadin-list-box-flow
-	url = https://github.com/vaadin/vaadin-list-box-flow.git
+	url = git@github.com:vaadin/vaadin-list-box-flow.git
 [submodule "vaadin-context-menu-flow"]
 	path = vaadin-context-menu-flow
 	url = git@github.com:vaadin/vaadin-context-menu-flow.git
 [submodule "vaadin-select-flow"]
 	path = vaadin-select-flow
-	url = https://github.com/vaadin/vaadin-select-flow
+	url = git@github.com:vaadin/vaadin-select-flow.git
 [submodule "vaadin-time-picker-flow"]
 	path = vaadin-time-picker-flow
-	url = https://github.com/vaadin/vaadin-time-picker-flow
+	url = git@github.com:vaadin/vaadin-time-picker-flow.git
