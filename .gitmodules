@@ -55,3 +55,9 @@
 [submodule "vaadin-context-menu-flow"]
 	path = vaadin-context-menu-flow
 	url = git@github.com:vaadin/vaadin-context-menu-flow.git
+[submodule "vaadin-select-flow"]
+	path = vaadin-select-flow
+	url = https://github.com/vaadin/vaadin-select-flow
+[submodule "vaadin-time-picker-flow"]
+	path = vaadin-time-picker-flow
+	url = https://github.com/vaadin/vaadin-time-picker-flow
