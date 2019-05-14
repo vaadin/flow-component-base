@@ -205,15 +205,13 @@
                             <containerIncludeJarPattern>^$</containerIncludeJarPattern>
                             <webInfIncludeJarPattern>^((?!flow-server-production-mode).)*$</webInfIncludeJarPattern>
                         </webAppConfig>
-                        <configuration>
-                            <systemProperties>
-                                <!-- Needed when running IT from parent folder -->
-                                <systemProperty>
-                                    <name>project.basedir</name>
-                                    <value>${project.basedir}</value>
-                                </systemProperty>
-                            </systemProperties>
-                        </configuration>
+                        <systemProperties>
+                            <!-- Needed when running IT from parent folder -->
+                            <systemProperty>
+                                <name>project.basedir</name>
+                                <value>${project.basedir}</value>
+                            </systemProperty>
+                        </systemProperties>
                     </configuration>
                     <executions>
                         <!-- start and stop jetty (running our app) when
