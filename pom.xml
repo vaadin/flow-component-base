@@ -29,7 +29,7 @@
         <driver.binary.downloader.maven.plugin.version>1.0.14
         </driver.binary.downloader.maven.plugin.version>
         <flow.version>2.0-SNAPSHOT</flow.version>
-        <testbench.version>6.1.0</testbench.version>
+        <testbench.version>6.2.0.beta1</testbench.version>
 
         <!-- OSGi support -->
         <osgi.bundle.import.package>*</osgi.bundle.import.package>
@@ -407,12 +407,6 @@
                 <version>${flow.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-            <!-- Override transitive dependency with Java 11 compatible version -->
-            <dependency>
-                <groupId>net.bytebuddy</groupId>
-                <artifactId>byte-buddy</artifactId>
-                <version>1.9.13</version>
             </dependency>
             <dependency>
                 <groupId>com.vaadin</groupId>
