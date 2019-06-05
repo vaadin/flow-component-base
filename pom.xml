@@ -198,9 +198,6 @@
                         <stopPort>9999</stopPort>
                         <stopWait>5</stopWait>
                         <stopKey>foo</stopKey>
-                        <!-- Use TestScope because the test classes are in
-                            the test package. -->
-                        <useTestScope>true</useTestScope>
                         <webAppConfig>
                             <containerIncludeJarPattern>^$</containerIncludeJarPattern>
                             <webInfIncludeJarPattern>^((?!flow-server-production-mode).)*$</webInfIncludeJarPattern>
