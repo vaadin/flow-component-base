@@ -4,9 +4,9 @@ This project is just a `pom` containing common configuration for individual comp
 
 This allows pom-files of individual components to become very small, as they only need to specify dependencies required by the particular component.
 
-This branch is for Vaadin 11 development. See other branches for other framework versions:
+This branch is for Vaadin 14 development. See other branches for other framework versions:
 
- - `master` branch is Vaadin 11 (Flow/Flow-component version 1.1)
+ - `master` branch is Vaadin 14 (Flow/Flow-component version 2.0)
  - `1.0` branch is Vaadin 10 (Flow/Flow-component version 1.0)
 
 ## Flow Components as Git submodules
