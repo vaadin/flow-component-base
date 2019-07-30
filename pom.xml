@@ -86,7 +86,7 @@
         </pluginRepository>
         <pluginRepository>
             <id>vaadin-prereleases</id>
-            <url>http://maven.vaadin.com/vaadin-prereleases</url>
+            <url>https://maven.vaadin.com/vaadin-prereleases</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
