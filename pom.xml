@@ -221,6 +221,12 @@
                             <configuration>
                                 <daemon>true</daemon>
                                 <scanIntervalSeconds>0</scanIntervalSeconds>
+                                <systemProperties>
+                                    <systemProperty>
+                                        <name>vaadin.devmode.liveReload.enabled</name>
+                                        <value>false</value>
+                                    </systemProperty>
+                                </systemProperties>
                             </configuration>
                         </execution>
                         <execution>
@@ -248,7 +254,7 @@
                     <configuration>
                         <systemPropertyVariables>
                             <webdriver.chrome.driver>${webdriver.chrome.driver}</webdriver.chrome.driver>
-                            <vaadin.devmode.liveReload.enabled>false</vaadin.devmode.liveReload.enabled>
+                            <devmode.liveReload.enabled>false</devmode.liveReload.enabled>
                         </systemPropertyVariables>
                     </configuration>
                 </plugin>
