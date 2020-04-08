@@ -248,7 +248,7 @@
                     <configuration>
                         <systemPropertyVariables>
                             <webdriver.chrome.driver>${webdriver.chrome.driver}</webdriver.chrome.driver>
-                            <devmode.liveReload.enabled>false</devmode.liveReload.enabled>
+                            <vaadin.devmode.liveReload.enabled>false</vaadin.devmode.liveReload.enabled>
                         </systemPropertyVariables>
                     </configuration>
                 </plugin>
