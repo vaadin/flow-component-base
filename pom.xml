@@ -49,11 +49,6 @@
             <name>Vaadin release staging repository</name>
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
-        <snapshotRepository>
-            <id>vaadin-snapshots</id>
-            <name>Vaadin snapshot repository</name>
-            <url>https://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
-        </snapshotRepository>
     </distributionManagement>
 
     <repositories>
@@ -68,12 +63,8 @@
             <id>vaadin-prereleases</id>
             <url>https://maven.vaadin.com/vaadin-prereleases</url>
             <snapshots>
-                <enabled>false</enabled>
+                <enabled>true</enabled>
             </snapshots>
-        </repository>
-        <repository>
-            <id>vaadin-snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
         </repository>
     </repositories>
     <pluginRepositories>
@@ -88,12 +79,8 @@
             <id>vaadin-prereleases</id>
             <url>https://maven.vaadin.com/vaadin-prereleases</url>
             <snapshots>
-                <enabled>false</enabled>
+                <enabled>true</enabled>
             </snapshots>
-        </pluginRepository>
-        <pluginRepository>
-            <id>vaadin-snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
         </pluginRepository>
     </pluginRepositories>
 
