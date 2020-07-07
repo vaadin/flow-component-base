@@ -31,7 +31,7 @@
         <driver.binary.downloader.maven.plugin.version>1.0.14
         </driver.binary.downloader.maven.plugin.version>
         <flow.version>4.0-SNAPSHOT</flow.version>
-        <testbench.version>6.2.2</testbench.version>
+        <testbench.version>6.3.0</testbench.version>
 
         <!-- OSGi support -->
         <osgi.bundle.import.package>*</osgi.bundle.import.package>
