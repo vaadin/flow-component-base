@@ -544,7 +544,7 @@
                also the most recent ones: see below. At the moment these are
                two deps "vaadin-usage-statistics" and
                "vaadin-development-mode-detector"  -->
-            <version>2.3.2</version>
+            <version>2.4.1</version>
         </dependency>
         <dependency>
             <groupId>org.webjars.bowergithub.vaadin</groupId>
