@@ -450,6 +450,16 @@
                 <artifactId>flow-osgi</artifactId>
                 <version>${flow.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.vaadin</groupId>
+                <artifactId>flow-lit-template</artifactId>
+                <version>${flow.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.vaadin</groupId>
+                <artifactId>flow-polymer-template</artifactId>
+                <version>${flow.version}</version>
+            </dependency>
 
             <!-- Demo Helpers -->
             <dependency>
