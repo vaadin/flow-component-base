@@ -17,7 +17,7 @@
 
     <properties>
         <flow.version>2.4-SNAPSHOT</flow.version>
-        <testbench.version>6.4.0.beta1</testbench.version>
+        <testbench.version>6.4.0</testbench.version>
         
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
